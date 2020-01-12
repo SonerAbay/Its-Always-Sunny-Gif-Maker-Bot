@@ -27,6 +27,12 @@ def welcome_user(item):
         t1.start()
         t2.start()
 
+def speed_user(item):
+
+    group_id = str(item["message"]["chat"]["id"])
+    message = "https://media.giphy.com/media/BLvZWddnwvcwE/giphy.gif"
+    bot.send_message(message, group_id)
+
 def user_update(item):
 
     if "text" in item["message"].keys():
@@ -47,7 +53,9 @@ def group_update(item):
         bot.send_message(reply, group_id)
 
     elif 'new_chat_participant' in item["message"].keys():
-        welcome_user(item) 
+        welcome_user(item)
+    elif 'left_chat_participant' in item["message"].keys():
+        speed_user(item)
 
 
 def channel_update(item):
