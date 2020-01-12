@@ -38,4 +38,4 @@ Usage: /random
 **Possible Features**:
 - `start_time` and `end_time` can be used to cut a wanted video scene from the episode then can be converted to gif and showed on Telegram.
 
-If you are ready to go live, check-out [where to host Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Where-to-host-Telegram-Bots). Please feel free to change and use it in any way you would like to!  
+If you are ready to go live, check-out [where to host Telegram bots](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Where-to-host-Telegram-Bots). Please feel free to change and use it in any way you would like to!  
