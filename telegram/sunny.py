@@ -18,7 +18,7 @@ def find_line(text):
 	else:
 		conn = None
 		try:
-			conn = sqlite3.connect("/mnt/c/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+			conn = sqlite3.connect("../db/subtitles.db")
 		except sqlite3.Error as e:
 			print(e)
 
@@ -47,7 +47,7 @@ def list_episodes(text):
 	else:
 		conn = None
 		try:
-			conn = sqlite3.connect("/mnt/c/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+			conn = sqlite3.connect("../db/subtitles.db")
 		except sqlite3.Error as e:
 			print(e)
 		
@@ -70,7 +70,7 @@ def random_episode():
 	episode = random.randint(1,153)
 	conn = None
 	try:
-		conn = sqlite3.connect("/mnt/c/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+		conn = sqlite3.connect("../db/subtitles.db")
 	except sqlite3.Error as e:
 		print(e)
 	
