@@ -29,9 +29,12 @@ def welcome_user(item):
 
 def speed_user(item):
 
+    # it will send it both to the group and the user
+    user_id = str(item["message"]["left_chat_participant"]["id"])
     group_id = str(item["message"]["chat"]["id"])
     message = "https://media.giphy.com/media/BLvZWddnwvcwE/giphy.gif"
     bot.send_message(message, group_id)
+    bot.send_message(message, user_id)
 
 def user_update(item):
 
