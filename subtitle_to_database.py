@@ -24,7 +24,7 @@ def exec(path,episode_id):
 
     conn = None
     try:
-        conn = sqlite3.connect("C:/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+        conn = sqlite3.connect("db/subtitles.db")
     except sqlite3.Error as e:
         print(e)
 
