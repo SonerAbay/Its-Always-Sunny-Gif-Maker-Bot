@@ -30,7 +30,7 @@ def create_db(chunks, episode_id):
 
     conn = None
     try:
-        conn = sqlite3.connect("C:/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+        conn = sqlite3.connect("db/subtitles.db")
     except sqlite3.Error as e:
         print(e)
 
@@ -67,7 +67,7 @@ def create_db(chunks, episode_id):
 
 def main():
 
-    path = 'c:\\Users\\soner\\Documents\\SUNNY_ALT\\2.sezon\\'
+    path = 'srt\\'
     files = {}
     episode_id = ""
     # r=root, d=directories, f = files
