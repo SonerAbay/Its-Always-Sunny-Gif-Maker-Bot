@@ -94,6 +94,6 @@ def text(input_text):
 		return list_episodes(text)
 	if command == '/random':
 		return random_episode()
-	if command == '/help':
+	if command == '/sunny_help':
 		return help()
 		
