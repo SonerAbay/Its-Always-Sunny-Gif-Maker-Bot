@@ -33,6 +33,7 @@ Usage: /random
 **Extra Features**:
 - If you add the bot to a group it will welcome the newcomer with an [ocular pat down](https://www.urbandictionary.com/define.php?term=ocular%20pat%20down)  
 
-
+**Possible Features**:
+- `start_time` and `end_time` can be used to cut a wanted video scene from the episode then can be converted to gif and showed on Telegram.
   
 Please feel free to change and use it in any way you would like to!
