@@ -32,6 +32,8 @@ Usage: /random
 
 **/sunny_help** - Returns the command list  
 
+**/trivia** - Returns a trivia about the show
+
 **Extra Features**:
 - If you add the bot to a group it will welcome the newcomer with an [ocular pat down](https://www.urbandictionary.com/define.php?term=ocular%20pat%20down)  
 
