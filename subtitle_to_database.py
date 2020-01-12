@@ -56,7 +56,7 @@ def exec(path,episode_id):
 
 def main():
 
-    path = 'c:\\Users\\soner\\Documents\\SUNNY_ALT\\2.sezon\\'
+    path = 'srt\\'
     files = {}
     episode_id = ""
     # r=root, d=directories, f = files
