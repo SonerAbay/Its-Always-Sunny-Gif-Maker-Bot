@@ -16,3 +16,5 @@ Usage: /episodes season_number
   
 **/random** - Get a random episode from the show.  
 Usage: /random  
+  
+Please feel free to change and use it in any way you would like to!
