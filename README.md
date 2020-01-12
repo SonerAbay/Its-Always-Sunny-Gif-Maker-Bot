@@ -28,7 +28,7 @@ Usage: /episodes season_number
 **/random** - Get a random episode from the show.  
 Usage: /random  
 
-**/help** - Returns the commands list  
+**/sunny_help** - Returns the commands list  
 
 **Extra Features**:
 - If you add the bot to a group it will welcome the newcomer with an [ocular pat down](https://www.urbandictionary.com/define.php?term=ocular%20pat%20down)  
