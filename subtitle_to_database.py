@@ -1,10 +1,9 @@
 import re
 import sqlite3
 import os
-from itertools import groupby
 
 
-def exec(path,episode_id):
+def fetch_srt(path,episode_id):
     chunks = []
     with open(path, 'r') as f:
         group = ""
@@ -12,26 +11,33 @@ def exec(path,episode_id):
             if line !="\n":
                 group += line + " "
             else:
-                # gereksiz boşlukları, empty lineları, dashleri siler
-                group = " ".join(group.split()).replace('-', '').lower()
-                # html tagi siler
+                # deletes empty lines and dashes
+                group = " ".join(group.split()).replace('-', '')
+                # deleting tags
                 group = re.sub('<[^>]*>', '', group)
                 group = re.sub(r'\[.*?\]', '', group)
-                #group = group.replace('\n', ' ').replace('\r', '').replace('-', '').lower()
                 print(group)
                 chunks.append(group)
                 group = ""
+    create_db(chunks, episode_id)
+
+
+
+def create_db(chunks, episode_id):
+
+    # popping last chunks from .srt files since they are generally ads
+    chunks.pop()
 
     conn = None
     try:
-        conn = sqlite3.connect("db/subtitles.db")
+        conn = sqlite3.connect("C:/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
     except sqlite3.Error as e:
         print(e)
 
-    # reklam yazıları sonda oluyor pop
-    chunks.pop()
+    # extracting timestamps and texts
     for c in chunks:
 
+        # finding timestamps H:MM:SS:XXX
         times = re.findall(r"\d{1}\:\d{2}\:\d{2}\,\d{3}", c)
 
         if len(times) > 0:
@@ -43,8 +49,13 @@ def exec(path,episode_id):
 
             end_time = int(times[1][2:4]) * 60 + int(times[1][5:7]) + 1
 
-            # c yi boslukla split edip 4 bosluktan itibaren geriye kalani alırsak text gelir
+            # the text we want is after the 4th split
             text = " ".join(c.split()[4:])
+
+            # only Letters numbers and spaces accepted
+            regex = re.compile("^[A-Za-z0-9 ]*$")
+            text = "".join(filter(regex.search, text))
+
             cur = conn.cursor()
             cur.execute("INSERT OR IGNORE INTO lines(text,start_time,end_time,episode_id) VALUES(?,?,?,?)",
                         (text, start_time, end_time, episode_id))
@@ -56,7 +67,7 @@ def exec(path,episode_id):
 
 def main():
 
-    path = 'srt\\'
+    path = 'c:\\Users\\soner\\Documents\\SUNNY_ALT\\2.sezon\\'
     files = {}
     episode_id = ""
     # r=root, d=directories, f = files
@@ -66,7 +77,7 @@ def main():
 
     print(files)
     for path, episode in files.items():
-        exec(path, episode)
+        fetch_srt(path, episode)
 
 
 if __name__ == "__main__":
