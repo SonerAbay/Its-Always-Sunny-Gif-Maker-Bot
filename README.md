@@ -16,7 +16,7 @@ You are all set after you add your token [here](/telegram.config.cfg).
 **For SQlite FTS5 features:**  
 `pip install peewee`
   
-### Run  
+### Run
 `python telegram/server.py`  
   
 ### Command List:
