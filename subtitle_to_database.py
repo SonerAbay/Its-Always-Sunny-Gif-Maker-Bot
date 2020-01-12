@@ -60,7 +60,7 @@ def create_db(chunks, episode_id):
             cur.execute("INSERT OR IGNORE INTO lines(text,start_time,end_time,episode_id) VALUES(?,?,?,?)",
                         (text, start_time, end_time, episode_id))
         else:
-            print("---------------------BOS VERI")
+            print("-------ILLEGAL CHUNK---------")
 
     conn.commit()
     cur.close()
