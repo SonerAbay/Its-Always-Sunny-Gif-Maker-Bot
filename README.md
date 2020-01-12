@@ -8,8 +8,8 @@ You can also use the database created for my favorite show It's Always Sunny in 
 
 You are all set after you add your token [here](/telegram.config.cfg).
 
-#### Required Packages
-**For SQlite FTS5 features:**
+### Required Packages
+**For SQlite FTS5 features:**  
 `pip install peewee`
 
 
