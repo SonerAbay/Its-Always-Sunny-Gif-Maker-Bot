@@ -15,8 +15,10 @@ You are all set after you add your token [here](/telegram.config.cfg).
 ### Required Packages
 **For SQlite FTS5 features:**  
 `pip install peewee`
-
-
+  
+### Run  
+`python telegram/server.py`  
+  
 ### Command List:
   
 **/line** - Enter a line from the show to find the episode.  
