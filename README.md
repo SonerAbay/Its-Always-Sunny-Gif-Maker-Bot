@@ -2,7 +2,7 @@
 
 This program creates a TV Show script database(sqlite) with timestamps using .srt files. If you order your .srt files by episode number **subtitle_to_database.py** will create a 2-table relational database for you. 
 
-Then you can create your own Telegram bot using this database. All telegram bot source code is in the /telegram folder. Don't forget to create your own telegram bot token via https://telegram.me/BotFather
+Then you can create your own Telegram bot using this database. All telegram bot source code is in the /telegram folder. Don't forget to create your own telegram bot token via [BotFater](https://telegram.me/BotFather)
 
 You can also use the [database](/db) created for my favorite show It's Always Sunny in Philadelphia.  
 
