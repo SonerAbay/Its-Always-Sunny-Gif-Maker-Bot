@@ -6,7 +6,7 @@ Then you can create your own Telegram bot using this database. All telegram bot 
 
 You can also use the [database](/db) created for my favorite show It's Always Sunny in Philadelphia.  
 
-When a user types `/line [Line from the show]` The bot will find that line in the show and it will return with season, episode number, episode name, exact time from the discussion and a url to stream that particular episode.  
+When a user types `/line [Line from the show]` the bot will find that line in the show and it will return with season, episode number, episode name, exact time from the discussion and a url to stream that particular episode.  
   
 If you woud like to use sqlite **FTS5** features such as full-text search use the *lines* virtual table. Otherwise you can use the *subtitle* table.
 
@@ -27,5 +27,12 @@ Usage: /episodes season_number
   
 **/random** - Get a random episode from the show.  
 Usage: /random  
+
+**/help** - Returns the commands list  
+
+**Extra Features**:
+- When added to group it will welcome the newcomer with [ocular pat down](https://www.urbandictionary.com/define.php?term=ocular%20pat%20down)  
+
+
   
 Please feel free to change and use it in any way you would like to!
