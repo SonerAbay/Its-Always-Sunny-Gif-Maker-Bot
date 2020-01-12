@@ -6,7 +6,7 @@ Then you can create your own Telegram bot using this database. All telegram bot 
 
 You can also use the database created for my favorite show It's Always Sunny in Philadelphia. If you woud like to use sqlite **FTS5** features such as full-text search use the *lines* virtual table. Otherwise you can use the *subtitle* table
 
-You are all set if you add your token here.
+You are all set if you add your token [here](/telegram.config.cfg).
 
 ### Command List:
   
