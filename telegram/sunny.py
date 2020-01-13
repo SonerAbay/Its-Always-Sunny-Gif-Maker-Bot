@@ -2,6 +2,17 @@ import re
 import sqlite3
 from playhouse.sqlite_ext import SqliteExtDatabase
 import random
+import json
+from datetime import datetime
+
+# logs the requests
+def log_request(item):
+
+	item["timestamp"] = str(datetime.now())
+	with open('requests.log', 'a') as f:
+		f.write(str(item))
+	
+
 
 def group_split(str):
 	command = str.split()[0]
@@ -42,7 +53,7 @@ def find_line(text):
 			return "\n''<i>{}</i>'' <b>@ {}</b>\n\n<b>Season {}, Episode {} - {}.</b>\n\nYou can watch it at:\n{}".format(result[0][6],time, result[0][1],result[0][3],result[0][2],result[0][4])
 
 def list_episodes(text):
-	if len(text) == 0 or len(text) > 2 or not text.isdigit():
+	if not text.isdigit() and int(text) < 1 or int(text) > 14:
 		return "Enter a valid season number, you jabroni!\n Usage: /episodes SEASON-NUMBER"
 	else:
 		conn = None
@@ -82,16 +93,12 @@ def random_episode():
 
 	return "<b>Here is a random episode for you:</b>\n\nSeason {} x {} - {}\n\nYou can watch it at:\n{}".format(result[0][2],result[0][0],result[0][1], result[0][3])
 
-def help():
-
-	return "<b>Command List:</b>\n\n<b>/line</b> - Enter a line from the show to find the episode.\n<b>Usage:</b>/line your line\n\n<b>/episodes</b> - Get the list of episodes from a season.\n<b>Usage:</b> /episodes season_number\n\n<b>/random</b> - Get a random episode from the show.\n<b>Usage:</b> /random"
-
 def trivia():
 	
 	trivia = random.randint(1,60)
 	conn = None
 	try:
-		conn = sqlite3.connect("/mnt/c/Users/soner/Documents/MYGITHUB/SUNNY/chinook/subtitles.db")
+		conn = sqlite3.connect("../db/subtitles.db")
 	except sqlite3.Error as e:
 		print(e)
 
@@ -104,9 +111,17 @@ def trivia():
 
 	return "<b>Did you know?</b>\n\n" + result[0][0]
 
-def text(input_text):
+def help():
+
+	return "<b>Command List:</b>\n\n<b>/line</b> - Enter a line from the show to find the episode.\n<b>Usage:</b>/line your line\n\n<b>/episodes</b> - Get the list of episodes from a season.\n<b>Usage:</b> /episodes season_number\n\n<b>/random</b> - Get a random episode from the show.\n<b>Usage:</b> /random\n\n<b>/trivia</b> Returns a trivia about the show.\n<b>Usage:</b> /trivia"
+
+def text(input_text, item):
+	print(item)
+	if input_text.startswith("/"):
+		log_request(item)
 	text, command = group_split(input_text)
 	if command == '/line':
+		log_request(item)
 		return find_line(text)
 	if command == '/episodes':
 		return list_episodes(text)
@@ -115,5 +130,5 @@ def text(input_text):
 	if command == '/sunny_help':
 		return help()
 	if command == '/trivia':
-		return trivia()	
+		return trivia()
 		
