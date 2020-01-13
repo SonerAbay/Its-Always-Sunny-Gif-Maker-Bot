@@ -7,13 +7,9 @@ from datetime import datetime
 
 # logs the requests
 def log_request(item):
-
-	item["timestamp"] = str(datetime.now())
 	with open('requests.log', 'a') as f:
-		f.write(str(item))
+		f.write(str(item)+"\n\n")
 	
-
-
 def group_split(str):
 	command = str.split()[0]
 	text = " ".join(str.split()[1:])
